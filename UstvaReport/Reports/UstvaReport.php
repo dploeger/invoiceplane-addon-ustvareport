@@ -55,7 +55,7 @@ class UstvaReport
         }
 
         foreach ($expenses as $expense) {
-            $results['field_66'] += $expense->amount / ($expense->tax + 100) * $expense->tax;
+            $results['field_66'] += $expense->amount * ($expense->tax / 100);
         }
 
         $results['field_81'] = intval($results['field_81']);
