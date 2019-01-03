@@ -19,7 +19,7 @@ class UstvaController extends Controller {
     }
 
     public function index() {
-        return view('ustva.options', ['companyProfiles' => ['' => trans('fi.all_company_profiles')] + CompanyProfile::getList()]);
+        return view('ustva.options', ['companyProfiles' => ['' => trans('ip.all_company_profiles')] + CompanyProfile::getList()]);
     }
 
     public function validateOptions(DateRangeRequest $request)
