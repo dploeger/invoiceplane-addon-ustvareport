@@ -2,11 +2,11 @@
 
 namespace Addons\UstvaReport\Controllers;
 
-use FI\Http\Controllers\Controller;
+use IP\Http\Controllers\Controller;
 use Addons\UstvaReport\Reports\UstvaReport;
-use FI\Modules\Reports\Requests\DateRangeRequest;
-use FI\Support\PDF\PDFFactory;
-use FI\Modules\CompanyProfiles\Models\CompanyProfile;
+use IP\Modules\Reports\Requests\DateRangeRequest;
+use IP\Support\PDF\PDFFactory;
+use IP\Modules\CompanyProfiles\Models\CompanyProfile;
 
 
 class UstvaController extends Controller {
