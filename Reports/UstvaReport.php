@@ -18,6 +18,8 @@ class UstvaReport
             'from_date' => DateFormatter::format($fromDate),
             'to_date' => DateFormatter::format($toDate),
             'field_66' => 0,
+            'field_35' => 0,
+            'field_36' => 0,
             'field_81' => 0,
             'field_83' => 0,
             'field_86' => 0
@@ -50,7 +52,10 @@ class UstvaReport
                     $results['field_81'] += $item->amount->subtotal;
                 } elseif ($item->taxRate->percent == '7.000') {
                     $results['field_86'] += $item->amount->subtotal;
-                }
+               } else {
+                   $results['field_35'] += $item->amount->subtotal;
+                   $results['field_36'] += $item->amount->tax;
+               }
             }
         }
 
@@ -60,12 +65,14 @@ class UstvaReport
 
         $results['field_81'] = intval($results['field_81']);
 
-        $results['field_83'] = $results['field_81'] * 0.19 + $results['field_86'] * 0.07 - $results['field_66'];
+        $results['field_83'] = $results['field_81'] * 0.19 + $results['field_86'] * 0.07 + $results['field_36'] - $results['field_66'];
 
+        $results['field_83'] = CurrencyFormatter::format($results['field_83']);
         $results['field_81'] = CurrencyFormatter::format($results['field_81']);
         $results['field_86'] = CurrencyFormatter::format($results['field_86']);
         $results['field_66'] = CurrencyFormatter::format($results['field_66']);
-        $results['field_83'] = CurrencyFormatter::format($results['field_83']);
+        $results['field_35'] = CurrencyFormatter::format($results['field_35']);
+        $results['field_36'] = CurrencyFormatter::format($results['field_36']);
 
         return $results;
     }

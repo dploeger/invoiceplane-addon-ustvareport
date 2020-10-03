@@ -13,6 +13,8 @@
 
     <p>{{ trans('UstvaReport::report.introduction') }}</p>
     <ul>
+        <li><b>35</b>: {{ $results['field_35'] }}</li>
+        <li><b>36</b>: {{ $results['field_36'] }}</li>
         <li><b>81</b>: {{ $results['field_81'] }}</li>
         <li><b>86</b>: {{ $results['field_86'] }}</li>
         <li><b>66</b>: {{ $results['field_66'] }}</li>
